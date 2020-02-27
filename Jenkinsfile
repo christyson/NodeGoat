@@ -21,7 +21,7 @@ pipeline {
           //sh 'LD_LIBRARY_PATH=$PWD node --require ./agent_linux64.node server.js'
           sh 'LD_LIBRARY_PATH=$PWD npm run test-iast'
           sh 'LD_LIBRARY_PATH=$PWD npm run test-iast-e23'
-          sh 'LD_LIBRARY_PATH=$PWD npm run test-iast-ce'
+          sh 'LD_LIBRARY_PATH=$PWD npm run test-iast-ci'
         }
       }
     }
