@@ -28,7 +28,9 @@
   "scripts": {
     "start": "node server.js",
     "test:e2e": "NODE_ENV=test cypress open",
+    "test-iast-e23": "NODE_ENV=test cypress --require ./agent_linux64.node test open"
     "test:ci": "NODE_ENV=test cypress run",
+    "test-iast-ce ":  "NODE_ENV=test cypress --require ./agent_linux64.node run",
     "test": "node node_modules/grunt-cli/bin/grunt test",
     "test-iast": "node node_modules/grunt-cli/bin/grunt --require ./agent_linux64.node test",
     "db:seed": "NODE_ENV=test grunt db-reset",
