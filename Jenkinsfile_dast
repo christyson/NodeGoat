@@ -1,5 +1,5 @@
 node {
-    #def mvnHome = tool 'Maven'
+    //def mvnHome = tool 'Maven'
    
     stage ('----Pull----') {
         git 'https://github.com/christyson/NodeGoat'
