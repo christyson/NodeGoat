@@ -8,6 +8,10 @@ pipeline {
     stage ('----Pull----') {
        steps {
           git 'https://github.com/christyson/NodeGoat'
+       }
+    }
+    stage ('----pip----') {
+       steps {
           pip install requests
        }
     }
