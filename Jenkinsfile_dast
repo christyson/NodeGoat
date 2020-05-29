@@ -1,6 +1,10 @@
-node {
-    //def mvnHome = tool 'Maven'
-   
+pipeline {
+  agent {
+    docker {
+      image 'python:3'
+    }
+  }
+  stages {
     stage ('----Pull----') {
         git 'https://github.com/christyson/NodeGoat'
     }
@@ -14,4 +18,6 @@ node {
         sh 'python3 "$WORKSPACE/jenkins-update-da-scan.py"'           
              }
         }
-}    
+    }
+  }
+}
