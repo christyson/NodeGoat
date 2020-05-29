@@ -8,6 +8,7 @@ pipeline {
     stage ('----Pull----') {
        steps {
           git 'https://github.com/christyson/NodeGoat'
+          pip install requests
        }
     }
     stage('----Create Veracode Dynamic Analysis Scan----'){
