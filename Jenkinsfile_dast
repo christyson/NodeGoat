@@ -2,10 +2,10 @@ node {
     def mvnHome = tool 'Maven'
    
     stage ('----Pull----') {
-        git 'https://github.com/aszaryk/verademo.git'
+        git 'https://github.com/christyson/NodeGoat'
     }
     stage('----Create Veracode Dynamic Analysis Scan----'){
-        withCredentials([usernamePassword(credentialsId: 'veracode-credentials',passwordVariable: 'VeraPW', usernameVariable: 'VeraID')]){
+        withCredentials([usernamePassword(credentialsId: 'Veracode', passwordVariable: 'VeraPW', usernameVariable: 'VeraID')]) {
         sh 'python3 "$WORKSPACE/jenkins-create-da-scan.py"'           
              }
         }
