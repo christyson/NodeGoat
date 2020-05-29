@@ -12,7 +12,9 @@ pipeline {
     }
     stage ('----pip----') {
        steps {
-          pip install requests
+          sh '''
+             pip3 install requests
+          '''
        }
     }
     stage('----Create Veracode Dynamic Analysis Scan----'){
