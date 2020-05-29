@@ -15,6 +15,7 @@ from urllib.parse import urlparse
 #Jenkins:
 api_id = os.getenv("VeraID")
 api_secret = os.getenv("VeraPW")
+dynamic_site = os.getenv("DAST_TARGET")
 dynamic_job = os.getenv("JOB_NAME") #Dynamic Job name will be same as Jenkins project name
 
 
@@ -64,7 +65,7 @@ data =   {
     {
       "scan_config_request": {
         "target_url": {
-          "url": "http://my.verademo.site"
+          "url": dynamic_site,
         }
       }
     }
