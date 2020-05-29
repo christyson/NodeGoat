@@ -15,6 +15,8 @@ from urllib.parse import urlparse
 #Jenkins:
 api_id = os.getenv("VeraID")
 api_secret = os.getenv("VeraPW")
+dynamic_target = os.getenv("Dyanamic_Target")
+print("Dynamic Target is: " + dynamic_target
 dynamic_job = os.getenv("JOB_NAME") #Dynamic Job name will be same as Jenkins project name
 
 
