@@ -9,6 +9,13 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+- task: Npm@1
+  inputs:
+    command: 'install'
+
+- task: Npm@1
+  inputs:
+    command: 'publish'
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
