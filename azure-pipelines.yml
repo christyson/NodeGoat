@@ -8,14 +8,6 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-
-- task: Npm@1
-  inputs:
-    command: 'install'
-
-- task: Npm@1
-  inputs:
-    command: 'publish'
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -24,3 +16,11 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+
+- task: Npm@1
+  inputs:
+    command: 'publish'
