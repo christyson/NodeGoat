@@ -17,6 +17,10 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: Npm@1
+- task: Bash@3
   inputs:
-    command: 'install'
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      rm -rf node_modules && npm install
