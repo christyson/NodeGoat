@@ -18,4 +18,4 @@ steps:
     script: |
       # Write your commands here
       
-      rm -rf node_modules && npm install
+      rm -rf node_modules && npm install && npm audit fix
