@@ -17,7 +17,7 @@ steps:
     command: 'install'
 - task: DeleteFiles@1
   inputs:
-    SourceFolder: '/home/vsts/work/1/snode_modules'
+    SourceFolder: '/home/vsts/work/1/s/node_modules'
     Contents: '**/*'
 - task: ArchiveFiles@2
   inputs:
