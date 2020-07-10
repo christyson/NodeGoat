@@ -15,11 +15,23 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
-    
-- task: Bash@3
+- task: ArchiveFiles@2
   inputs:
-    targetType: 'inline'
-    script: |
-      # Write your commands here
-      
-      # rm -rf node_modules && npm install && npm audit fix --force
+    rootFolderOrFile: '/home/vsts/work/1/s'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+- task: Veracode@3
+  inputs:
+    ConnectionDetailsSelection: 'Endpoint'
+    AnalysisService: 'Veracode'
+    veracodeAppProfile: '$(system.teamProject)'
+    version: '$(build.buildNumber)'
+    filepath: '$(build.artifactstagingdirectory)'
+    createSandBox: false
+    createProfile: true
+    failTheBuildIfVeracodeScanDidNotInitiate: false
+    scanStatusCheckInterval: '60'
+    importResults: true
+    failBuildOnPolicyFail: true
