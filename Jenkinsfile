@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       //image 'node:8.16.0'
-      image 'node:10.24.0'
+      image 'node:8'
     }
   }
   stages {
