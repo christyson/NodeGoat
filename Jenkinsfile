@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'rm -rf node_modules && npm install'
+        sh 'rm -rf node_modules && npm install && npm audit fix --force'
       }
     }
     stage('Test') {
