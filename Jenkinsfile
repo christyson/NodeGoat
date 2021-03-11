@@ -1,7 +1,8 @@
 pipeline {
   agent {
     docker {
-      image 'node:8.16.0'
+      //image 'node:8.16.0'
+      image 'node:latest'
     }
   }
   stages {
