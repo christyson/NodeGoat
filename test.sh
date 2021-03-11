@@ -34,7 +34,8 @@ echo "Using BUILD_TAG: ${BUILD_TAG}"
 
 # Ping Veracode Interactive Agent Server to make sure it's alive.
 status_code=$(curl --write-out %{http_code} --silent --output /dev/null --insecure ${AGENT_SERVER_URL})
-if [[ "$status_code" -ne 200 ]]; then
+#if [[ "$status_code" -ne 200 ]]; then
+if [[ "$status_code" -ne 000 ]]; then
   echo "ERROR: Veracode Interactive Agent Server not available at ${AGENT_SERVER_URL} (Status code: ${status_code})."
   exit 1
 fi;
