@@ -17,7 +17,8 @@ pipeline {
         // 1.	Enable Veracode Interactive for the steps that run the tests. 
         wrap([$class: 'VeracodeInteractiveBuildWrapper', location: 'host.docker.internal', port: '10010']) {
           // 2.	Download the IAST Agent into the project workspace. 
-          sh 'curl -sSL https://s3.us-east-2.amazonaws.com/app.veracode-iast.io/iast-ci.sh |  sh'
+          // sh 'curl -sSL https://s3.us-east-2.amazonaws.com/app.veracode-iast.io/iast-ci.sh |  sh'
+          ./test.sh
           // 3.	Run the tests with the Veracode Interactive Agent attached. 
           //sh ' LD_LIBRARY_PATH=$PWD mocha --require ./agent_nodejs_linux64 test/index.js'
           //sh 'LD_LIBRARY_PATH=$PWD node --require ./agent_linux64.node server.js'
