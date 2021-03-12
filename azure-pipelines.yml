@@ -38,4 +38,4 @@ steps:
     failTheBuildIfVeracodeScanDidNotInitiate: false
     scanStatusCheckInterval: '60'
     importResults: true
-    failBuildOnPolicyFail: true
+    failBuildOnPolicyFail: false
