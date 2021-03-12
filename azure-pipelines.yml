@@ -26,7 +26,7 @@ steps:
           export SRCCLR_SCM_REF=master
           export SRCCLR_SCM_REF_TYPE=branch
           export SRCCLR_SCM_REV="$(build.buildNumber)"
-          curl -sSL https://download.sourceclear.com/ci.sh | bash -s -- scan --update-advisor
+          curl -sSL https://download.sourceclear.com/ci.sh | bash -s -- scan --allow-dirty --update-advisor
 - task: DeleteFiles@1
   inputs:
     SourceFolder: '/home/vsts/work/1/s/node_modules'
