@@ -15,6 +15,18 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
+
+- task: Bash@3
+  displayName: 'Veracode SCA scan'
+  inputs:
+     targetType: 'inline'
+     script: |
+          export SRCCLR_SCM_URI=https://github.com/christyson/verademo
+          export SRCCLR_API_TOKEN="$(SRCCLR_API_TOKEN)"
+          export SRCCLR_SCM_REF=master
+          export SRCCLR_SCM_REF_TYPE=branch
+          export SRCCLR_SCM_REV="$(build.buildNumber)"
+          curl -sSL https://download.sourceclear.com/ci.sh | bash -s -- scan --update-advisor
 - task: DeleteFiles@1
   inputs:
     SourceFolder: '/home/vsts/work/1/s/node_modules'
