@@ -21,7 +21,6 @@ steps:
   inputs:
      targetType: 'inline'
      script: |
-          export SRCCLR_SCM_URI=https://nodegoat_ado
           export SRCCLR_API_TOKEN="$(SRCCLR_API_TOKEN)"
           export SRCCLR_SCM_REF=master
           export SRCCLR_SCM_REF_TYPE=branch
