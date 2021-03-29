@@ -9,7 +9,7 @@ pipeline {
       stage('Build') {
          steps {
             //sh 'rm -rf node_modules && npm install && npm audit fix --force'
-            sh 'apt update && apt-get install zip unzip -y && apt install python-pip -y && npm install && rm -rf node_modules && zip -r nodegoat.zip *'
+            sh 'apt update && apt-get install zip unzip -y && apt install python-pip -y && apt-get install default-jdk -y && npm install && rm -rf node_modules && zip -r nodegoat.zip *'
          }
       }
       stage('SCA SC') {
