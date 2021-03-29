@@ -2,17 +2,14 @@ pipeline {
   agent {
     docker {
       //image 'node:8.16.0'
-      //image 'node:latest'
-      image 'ubuntu:latest'
+      image 'node:latest'
     }
   }
   stages {
     stage('Build') {
       steps {
         //sh 'rm -rf node_modules && npm install && npm audit fix --force'
-        //          export SRCCLR_SCM_URI=https://nodegoat_ado
-        //sh 'apt update && apt-get install zip unzip -y && apt install python3-pip -y && npm install && rm -rf node_modules && zip -r nodegoat.zip *'
-        sh 'apt update && apt install nodejs -y && apt install npm -y && npm install && rm -rf node_modules && zip -r nodegoat.zip *'
+        sh 'apt update && apt-get install zip unzip -y && apt install python-pip -y && npm install && rm -rf node_modules && zip -r nodegoat.zip *'
       }
     }
     stage('SCA SC') {
