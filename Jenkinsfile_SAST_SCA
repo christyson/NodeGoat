@@ -1,0 +1,33 @@
+pipeline {
+  agent {
+    docker {
+      //image 'node:8.16.0'
+      image 'node:latest'
+    }
+  }
+  stages {
+    stage('Build') {
+      steps {
+        //sh 'rm -rf node_modules && npm install && npm audit fix --force'
+        sh 'rm -rf node_modules && npm install && zip -r nodegoat.zip *'
+      }
+    }
+    stage('SCA SC') {
+      steps {
+        withCredentials([string(credentialsId: 'SRCCLR_API_TOKEN', variable: 'SRCCLR_API_TOKEN')]) {
+          sh '''
+            curl -sSL https://download.sourceclear.com/ci.sh | sh
+          '''
+        }
+      }
+    }
+    stage('Veracode Sast') {
+      // upload and scan
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'Veracode', passwordVariable: 'VERACODEKEY', usernameVariable: 'VERACODEID')]) {
+          veracode applicationName: '$JOB_NAME', canFailJob: false, createProfile: true, criticality: 'High', fileNamePattern: '', replacementPattern: '', sandboxName: '', scanExcludesPattern: '', scanIncludesPattern: '', scanName: "$BUILD_NUMBER", teams: '', timeout: 60, uploadExcludesPattern: '', uploadIncludesPattern: '**/**.zip', vid: VERACODEID, vkey: VERACODEKEY
+        }
+      }
+    }
+  }
+}
