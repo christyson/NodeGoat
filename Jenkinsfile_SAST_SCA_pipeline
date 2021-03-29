@@ -16,7 +16,7 @@ pipeline {
                apt-get -qq install default-jdk -y
                npm install --silent
                rm -rf node_modules
-               zip -r nodegoat.zip *'
+               zip -r nodegoat.zip *
             '''   
          }
       }
