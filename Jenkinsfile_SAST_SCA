@@ -9,7 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         //sh 'rm -rf node_modules && npm install && npm audit fix --force'
-        sh 'npm install && npm audit fix --force && ls -alg && rm -rf node_modules && zip -r nodegoat.zip *'
+        sh 'npm install && rm -rf node_modules && zip -r nodegoat.zip *'
       }
     }
     stage('SCA SC') {
