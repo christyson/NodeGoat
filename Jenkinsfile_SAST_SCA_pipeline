@@ -30,6 +30,7 @@ pipeline {
             unzip -o pipeline-scan-LATEST.zip
             java -jar pipeline-scan.jar -vid $VERACODEID -vkey $VERACODEKEY --fail_on_severity="Very High, High" --issue_details true --json_output_file="baseline.json" -f ./target/verademo.war
          '''
+        }
       }
       archiveArtifacts artifacts: 'baseline.json'
     }
@@ -39,5 +40,4 @@ pipeline {
       archiveArtifacts artifacts: 'baseline.json'
     }
   }
- }
 }
